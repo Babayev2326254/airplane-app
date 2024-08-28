@@ -1,0 +1,24 @@
+import psycopg2 
+
+db = psycopg2.connect(
+    host = 'localhost',
+    dbname = "postgres",
+    user = 'postgres',
+    password = 'postgres',
+    port = 5432
+)
+
+c = db.cursor()
+table_1 = c.execute(""" CREATE TABLE flights_details(
+     id bigserial PRIMARY KEY,
+     flight_number bigserial,
+     date date,
+     time time,
+     origin varchar,
+     destination varchar,
+     seats bigint
+"""
+)
+
+
+
